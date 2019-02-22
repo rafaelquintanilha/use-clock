@@ -13,17 +13,24 @@ npm install --save use-clock
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react';
+import useClock from 'use-clock';
 
-import MyComponent from 'use-clock'
-
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
+function App() {
+  const { time, onTimezone, raw } = useClock("HH:mm:ss");
+  const londonTime = onTimezone("Europe/London");
+  const brasiliaTime = onTimezone("America/Sao_Paulo");
+  return (
+    <div>
+      <div><b>Computer time:</b> {time}</div>
+      <div><b>London time:</b> {londonTime}</div>
+      <div><b>Brasilia time:</b> {brasiliaTime}</div>
+      <div><b>Raw time:</b> {raw.format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
+    </div>
+  );
 }
+
+export default App;
 ```
 
 ## License
