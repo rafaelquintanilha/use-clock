@@ -36,13 +36,13 @@ export default App;
 #### `useClock(<format: String>, <period: Number>)`
 Param | Type | Default | Description
 --- | --- | --- | ---
-format | `String` | `"DD/MM/YYYY HH:mm:ss"` | Any string accepted by [`moment.format`](https://momentjs.com/docs/#/displaying/format/) function
+format | `String` | `"DD/MM/YYYY HH:mm:ss"` | Any string accepted by [`moment.format`](https://momentjs.com/docs/#/displaying/format/)
 period | `Number` | `1000` | Time, in miliseconds, that the clock is updated
 
 #### `onTimezone(<timezone: String>)`
 Param | Type | Default | Description
 --- | --- | --- | ---
-timezone | `String` | `"DD/MM/YYYY HH:mm:ss"` | [Any string accepted as a timezone](//en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+timezone | `String` | Computer timezone as per `moment.tz.guess()` | [Any string accepted as a timezone](//en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 ## License
 
