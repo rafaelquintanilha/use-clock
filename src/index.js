@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { useState, useEffect } from 'react';
+import moment from 'moment-timezone';
 
-import styles from './styles.css'
+const useClock = (format = "DD/MM/YYYY HH:mm:ss", period = 1000) => {
+  const [time, setTime] = useState(moment());
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setTime(moment());
+    }, period)
+  }, [time]);
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
+  return {
+    time: time.format(format),
+    onTimezone: (timezone = moment.tz.guess()) => time.clone().tz(timezone).format(format),
+    raw: time
   }
+};
 
-  render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
-}
+export default useClock;
