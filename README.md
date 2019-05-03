@@ -44,6 +44,12 @@ Param | Type | Default | Description
 --- | --- | --- | ---
 timezone | `String` | Computer timezone as per `moment.tz.guess()` | [Any string accepted as a timezone](//en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
+## Dependency
+
+This package has [moment-timezone](https://github.com/moment/moment-timezone) as a dependency, which increases the bundle size significantly. **Beware if it's a concern!**
+
+In the future, we may switch to a more lightweight dependency such as [date-fns](https://date-fns.org/). Feel free to contribute!
+
 ## License
 
 MIT © [rafaelquintanilha](https://github.com/rafaelquintanilha)
