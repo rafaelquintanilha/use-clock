@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import moment from 'moment-timezone';
+import useInterval from 'use-interval'
 
 const useClock = (format = "DD/MM/YYYY HH:mm:ss", period = 1000) => {
   const [time, setTime] = useState(moment());
-  
-  useEffect(() => {
-    setTimeout(() => {
-      setTime(moment());
-    }, period)
-  }, [time]);
+
+  useInterval(() => {
+    setTime(moment());
+  }, period);
 
   return {
     time: time.format(format),
